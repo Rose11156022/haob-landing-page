@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HABO 冷暖智慧風扇 - 冷暖雙用ｘ智慧感應ｘ定時關機✩₊˚⋆☾ 全新的日常溫暖守護">
+    <title>HABO 冷暖智慧風扇 - 小日扇</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==================== CSS Variables ==================== */
+        :root {
+            --bg-main: #F9F3E9;
+            --text-main: #5A4A42;
+            --primary-warm: #C88F6D;
+            --primary-cool: #7D9D9C;
+            --white: #FFFFFF;
+            --border-radius-card: 12px;
+            --border-radius-btn: 50px;
+            --shadow: 0 4px 12px rgba(90, 74, 66, 0.08);
+        }
+        
+        /* ==================== Reset & Base ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* ==================== Container ==================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        /* ==================== Navbar (Sticky) ==================== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 16px 0;
+        }
+        
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-warm);
+            letter-spacing: 2px;
+        }
+        
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .navbar-menu a {
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-menu a:hover {
+            color: var(--primary-warm);
+        }
+        
+        .navbar-cta {
+            background: linear-gradient(135deg, var(--primary-warm), var(--primary-cool));
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: var(--border-radius-btn);
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+        
+        .navbar-cta:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Mobile Menu Toggle */
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .navbar-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-main);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        
+        /* ==================== Hero Section ==================== */
+        .hero {
+            background: linear-gradient(135deg, rgba(199, 143, 109, 0.15), rgba(125, 157, 156, 0.15));
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: var(--text-main);
+            font-weight: 300;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 14px 36px;
+            border-radius: var(--border-radius-btn);
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-warm);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: #b37d5a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(200, 143, 109, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary-warm);
+            border: 2px solid var(--primary-warm);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-warm);
+            color: var(--white);
+        }
+        
+        .hero-image {
+            margin-top: 60px;
+            border-radius: var(--border-radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        /* ==================== Pain Points (Comparison) ==================== */
+        .pain-points {
+            background-color: var(--white);
+        }
+        
+        .pain-points h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            font-weight: 500;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .comparison-card {
+            background-color: var(--bg-main);
+            padding: 40px;
+            border-radius: var(--border-radius-card);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .comparison-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .comparison-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .comparison-card.old {
+            border: 2px solid rgba(200, 143, 109, 0.3);
+        }
+        
+        .comparison-card.new {
+            border: 2px solid var(--primary-cool);
+            background: linear-gradient(135deg, rgba(125, 157, 156, 0.1), rgba(249, 243, 233, 0.5));
+        }
+        
+        .comparison-card p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .comparison-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        /* ==================== Key Features (Zig-Zag) ==================== */
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            font-weight: 500;
+        }
+        
+        .feature-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .feature-item.reverse {
+            direction: rtl;
+        }
+        
+        .feature-item.reverse > * {
+            direction: ltr;
+        }
+        
+        .feature-image {
+            border-radius: var(--border-radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .feature-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+        }
+        
+        .feature-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-main);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 12px;
+        }
+        
+        .badge-warm {
+            background-color: rgba(200, 143, 109, 0.2);
+            color: var(--primary-warm);
+        }
+        
+        .badge-cool {
+            background-color: rgba(125, 157, 156, 0.2);
+            color: var(--primary-cool);
+        }
+        
+        .badge-safe {
+            background-color: rgba(90, 74, 66, 0.1);
+            color: var(--text-main);
+        }
+        
+        /* ==================== Specs Table ==================== */
+        .specs {
+            background-color: var(--white);
+        }
+        
+        .specs h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            font-weight: 500;
+        }
+        
+        .specs-table {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--bg-main);
+            border-radius: var(--border-radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .specs-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .specs-table th,
+        .specs-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(90, 74, 66, 0.1);
+        }
+        
+        .specs-table th {
+            background-color: var(--primary-cool);
+            color: var(--white);
+            font-weight: 500;
+        }
+        
+        .specs-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .specs-table tr:hover {
+            background-color: rgba(125, 157, 156, 0.05);
+        }
+        
+        /* ==================== FAQ (Accordion) ==================== */
+        .faq h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            font-weight: 500;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: var(--white);
+            margin-bottom: 16px;
+            border-radius: var(--border-radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: rgba(125, 157, 156, 0.05);
+        }
+        
+        .faq-question .icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active .icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 24px;
+            background-color: var(--bg-main);
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 24px;
+        }
+        
+        .faq-answer p {
+            line-height: 1.8;
+        }
+        
+        /* ==================== Order Section ==================== */
+        .order-section {
+            background: linear-gradient(135deg, var(--primary-warm), var(--primary-cool));
+            padding: 80px 0;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .order-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .order-content > p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .order-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .info-icon {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .info-item p {
+            font-size: 1rem;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .btn-order {
+            background-color: var(--white);
+            color: var(--primary-warm);
+            padding: 18px 48px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: var(--border-radius-btn);
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+        }
+        
+        .btn-order:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .order-note {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+        
+        /* ==================== Footer ==================== */
+        .footer {
+            background-color: var(--text-main);
+            color: var(--bg-main);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .footer-social a {
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            transform: scale(1.2);
+        }
+        
+        .footer p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* ==================== Responsive Design ==================== */
+        @media (max-width: 768px) {
+            .navbar-menu {
+                position: fixed;
+                top: 65px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 65px);
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 40px 0;
+                transition: left 0.3s ease;
+                box-shadow: var(--shadow);
+            }
+            
+            .navbar-menu.active {
+                left: 0;
+            }
+            
+            .navbar-toggle {
+                display: flex;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-item,
+            .feature-item.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                gap: 30px;
+            }
+            
+            .feature-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .specs-table th,
+            .specs-table td {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+            
+            h2 {
+                font-size: 2rem !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+        
+        /* ==================== Scroll Animations ==================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Stagger animation delays */
+        .fade-in:nth-child(1) { transition-delay: 0.1s; }
+        .fade-in:nth-child(2) { transition-delay: 0.2s; }
+        .fade-in:nth-child(3) { transition-delay: 0.3s; }
+        
+        /* ==================== Pulse Animation ==================== */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        /* ==================== Gradient Animation ==================== */
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, rgba(199, 143, 109, 0.15), rgba(125, 157, 156, 0.15), rgba(199, 143, 109, 0.1));
+            background-size: 200% 200%;
+            animation: gradient-shift 8s ease infinite;
+        }
+        
+        /* ==================== Glow Effect ==================== */
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(200, 143, 109, 0.3), 0 0 10px rgba(200, 143, 109, 0.2); }
+            50% { box-shadow: 0 0 20px rgba(200, 143, 109, 0.6), 0 0 30px rgba(200, 143, 109, 0.4); }
+        }
+        
+        .navbar-cta:hover {
+            animation: glow 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== Navbar ==================== -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-logo">HABO</a>
+            
+            <ul class="navbar-menu" id="navbarMenu">
+                <li><a href="#comparison">情境</a></li>
+                <li><a href="#features">特色</a></li>
+                <li><a href="#specs">規格</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="https://forms.gle/EVDutffnMnav788o8" target="_blank" class="navbar-cta">Buy Now</a></li>
+            </ul>
+            
+            <div class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== Hero Section ==================== -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="fade-in">知冷知熱，懂你的小日扇</h1>
+            <p class="fade-in">日本熱銷 4 萬台！90% 使用者肯定｜極靜 × 速暖｜全新日常溫暖選擇 安心設計四季守護</p>
+            
+            <div class="hero-buttons fade-in">
+                <a href="#features" class="btn btn-primary pulse-animation">了解更多</a>
+                <a href="https://forms.gle/EVDutffnMnav788o8" target="_blank" class="btn btn-secondary">立即購買</a>
+            </div>
+            
+            <div class="hero-image scale-in">
+                <img src="{{ url_for('static', filename='imgs/LINE_ALBUM_小日扇_260212_1.jpg') }}" alt="HABO 冷暖智慧風扇">
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Pain Points (Comparison) ==================== -->
+    <section class="pain-points" id="comparison">
+        <div class="container">
+            <h2 class="fade-in">四季獻策，一機搞定</h2>
+            
+            <div class="comparison">
+                <!-- Old Way -->
+                <div class="comparison-card old slide-in-left">
+                    <div class="comparison-icon">😰</div>
+                    <h3>傳統方式</h3>
+                    <p>夏天一台風扇，冬天一台暖氣機</p>
+                    <p>空間佔用大，收納麻煩</p>
+                    <p>多個裝置，電線雜亂</p>
+                    <p>傳統電熱管過熱燒焦危險</p>
+                </div>
+                
+                <!-- HABO Way -->
+                <div class="comparison-card new slide-in-right">
+                    <div class="comparison-icon">✨</div>
+                    <h3>HAOB 小日扇</h3>
+                    <p>♨️強：高熱模式 1200W</p>
+                    <p>♨️弱：低熱模式 600W</p>
+                    <p>🌀送風：涼風模式</p>
+                    <p>PTC 陶瓷智慧型加熱，精準恆溫</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Key Features (Zig-Zag) ==================== -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="fade-in">核心特色</h2>
+            
+            <!-- Feature 1: Heating -->
+            <div class="feature-item fade-in">
+                <div class="feature-image">
+                    <img src="{{ url_for('static', filename='imgs/LINE_ALBUM_小日扇_260212_2.jpg') }}" alt="3秒瞬熱">
+                </div>
+                <div class="feature-content">
+                    <h3>
+                        <span class="feature-icon">🔥</span>
+                        3秒高效速暖
+                    </h3>
+                    <p><strong>超靜音 × 急速暖 × 恆溫久</strong><br>
+                    和等待房間變暖的痛苦時光說再見！冷暖小日扇採用 PTC 陶瓷加熱，約 3 秒即可啟動加熱，送風距離遠，能夠溫暖更廣闊。<br><br>
+                    <strong>急速暖房 一開就暖</strong><br>
+                    低風口設計，加速熱對流暖空氣上升，均勻暖房，快速提升室內溫度。暖風到達距離提升 300%，超驚人「速暖」效果！</p>
+                    <span class="badge badge-warm">♨️ 高熱模式 1200W / 低熱模式 600W</span>
+                </div>
+            </div>
+            
+            <!-- Feature 2: Cooling -->
+            <div class="feature-item reverse fade-in">
+                <div class="feature-image">
+                    <img src="{{ url_for('static', filename='imgs/LINE_ALBUM_小日扇_260212_1.jpg') }}" alt="靜音涼風">
+                </div>
+                <div class="feature-content">
+                    <h3>
+                        <span class="feature-icon">🌬️</span>
+                        超薄機身・多場景適用
+                    </h3>
+                    <p><strong>超薄機身不佔位 厚度僅 11.6 公分 適用空間 5 坪</strong><br>
+                    輕巧方便移動，小巧不佔空間。適用於各種場景：<br>
+                    ✓ <strong>小坪數空間</strong>：冬天工作久了手腳變冷，開低熱慢慢暖，輕巧體積不佔位，柔風輕聲、不影響專注<br>
+                    ✓ <strong>冬夜臥室</strong>：洗完澡房間還冷的，先開暖風快速升溫，入睡後設置定時關機，睡到早上也安心<br>
+                    ✓ <strong>夏季悶熱</strong>：送風循環模式，冷氣房裡加速空氣流動<br>
+                    ✓ 陪你追劇、辦公暖腳、寵物取暖都適合</p>
+                    <span class="badge badge-cool">🌀 送風模式</span>
+                </div>
+            </div>
+            
+            <!-- Feature 3: Safety -->
+            <div class="feature-item fade-in">
+                <div class="feature-image">
+                    <img src="{{ url_for('static', filename='imgs/LINE_ALBUM_小日扇_260212_2.jpg') }}" alt="安全防護">
+                </div>
+                <div class="feature-content">
+                    <h3>
+                        <span class="feature-icon">🛡️</span>
+                        寵物小孩友善・安心守護
+                    </h3>
+                    <p><strong>傾倒立即斷電</strong> × <strong>過熱斷電</strong> × <strong>人感模式</strong> × <strong>智能關機</strong><br>
+                    ✦ <strong>寵物小孩友善</strong>：碰倒即自動斷電，免除燒燙意外！長輩也能放心使用<br>
+                    ✦ <strong>人體感應器</strong>：感測人體移動，自動運轉！人感模式開啟自動感應有人或無人，當 3 分鐘沒有感測到人在時會自動關閉加熱！智慧 × 安全 × 省電<br>
+                    ✦ <strong>定時關機</strong>：1-10 小時定時關機，12 小時自動關機<br>
+                    ✦ <strong>童鎖設計</strong>：簡單一按，防止誤觸<br>
+                    ✦ <strong>過熱保護</strong>：溫控斷電設計，長時間使用也安心</p>
+                    <span class="badge badge-safe">✓ 12 個月保固 / 通過台灣 BSMI 認證</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Specs Table ==================== -->
+    <section class="specs" id="specs">
+        <div class="container">
+            <h2 class="fade-in">產品規格</h2>
+            
+            <div class="specs-table scale-in">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>項目</th>
+                            <th>規格</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>品名</strong></td>
+                            <td>HAOB 冷暖小日扇</td>
+                        </tr>
+                        <tr>
+                            <td><strong>顏色</strong></td>
+                            <td>簡約白 / 淺木紋</td>
+                        </tr>
+                        <tr>
+                            <td><strong>淨重</strong></td>
+                            <td>約 1.9 kg</td>
+                        </tr>
+                        <tr>
+                            <td><strong>尺寸</strong></td>
+                            <td>230 (W) × 116 (D) × 323 (H) mm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>厚度</strong></td>
+                            <td>僅 11.6 公分（超薄機身不佔位）</td>
+                        </tr>
+                        <tr>
+                            <td><strong>額定電壓</strong></td>
+                            <td>AC 110 V / 60 Hz</td>
+                        </tr>
+                        <tr>
+                            <td><strong>額定功率</strong></td>
+                            <td>1200 W</td>
+                        </tr>
+                        <tr>
+                            <td><strong>運作模式</strong></td>
+                            <td>強 / 弱 / 送風 三段式</td>
+                        </tr>
+                        <tr>
+                            <td><strong>適用空間</strong></td>
+                            <td>5 坪</td>
+                        </tr>
+                        <tr>
+                            <td><strong>電源線長度</strong></td>
+                            <td>1.2m（外露）</td>
+                        </tr>
+                        <tr>
+                            <td><strong>加熱技術</strong></td>
+                            <td>PTC 陶瓷智慧型加熱</td>
+                        </tr>
+                        <tr>
+                            <td><strong>速暖時間</strong></td>
+                            <td>約 3 秒高效速暖</td>
+                        </tr>
+                        <tr>
+                            <td><strong>噪音</strong></td>
+                            <td>靜音運作</td>
+                        </tr>
+                        <tr>
+                            <td><strong>定時功能</strong></td>
+                            <td>1-10 小時定時關機 / 12 小時自動關機</td>
+                        </tr>
+                        <tr>
+                            <td><strong>智慧功能</strong></td>
+                            <td>人體感測 / 高效控溫 / 自動調節</td>
+                        </tr>
+                        <tr>
+                            <td><strong>安全機制</strong></td>
+                            <td>傾倒斷電 / 過熱斷電 / 兒童安全鎖</td>
+                        </tr>
+                        <tr>
+                            <td><strong>機體設計</strong></td>
+                            <td>輕量方便移動 / 小巧不佔空間</td>
+                        </tr>
+                        <tr>
+                            <td><strong>保固服務</strong></td>
+                            <td>嘖嘖獨家 12 個月</td>
+                        </tr>
+                        <tr>
+                            <td><strong>BSMI 登錄字號</strong></td>
+                            <td>R75597</td>
+                        </tr>
+                        <tr>
+                            <td><strong>產品責任險</strong></td>
+                            <td>國泰產險 2000 萬產品責任險</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ (Accordion) ==================== -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <h2 class="fade-in">常見問題</h2>
+            
+            <div class="faq-container fade-in">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>HAOB 小日扇適合多大的空間使用？</span>
+                        <span class="icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>HAOB 小日扇最適合 3-6 坪的個人空間使用，如臥室、書房、辦公桌面等。輕巧便攜設計，提著走到哪都容易，你的每個小角落，都有小日扇陪你一起溫暖。</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>人感模式如何運作？</span>
+                        <span class="icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>預設為「連續模式」：持續加熱（不會感應有無人在）。「人感模式」：開啟時將自動感應有人或無人，有人狀態下會持續加熱，無人狀態下3分鐘後自動關閉加熱。你離開時替你關心，你回來時默默啟動，貼心像家人一樣。</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>如何清潔和保養 HABO 小日扇？</span>
+                        <span class="icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>小日扇機器背後附活性碳濾網，拆洗簡單，建議 2–3 個月取下清潔一次。環境較敏感者可視需求清洗，保持空氣乾淨不費力，輕鬆維持舒適的每一天。清潔前請先關閉電源並拔除插頭，外殼可用乾淨的濕布輕輕擦拭。</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>有什麼安全防護功能？</span>
+                        <span class="icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>✓ 傾倒斷電：不論是孩童的粗心或毛孩的奔跑，小日扇都能在意外發生前先替你保護好一切<br>
+                        ✓ 過熱斷電：內建溫控斷電設計，長時間使用也不必擔心<br>
+                        ✓ 兒童鎖功能：簡單一按，就能放心給孩子自由探索<br>
+                        ✓ 可調式柵欄：出風口外為可調式柵欄設計，防止誤觸燙傷等傷害</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Order Section ==================== -->
+    <section class="order-section" id="buy">
+        <div class="container">
+            <div class="order-content fade-in">
+                <h2>立即訂購 HAOB 冷暖小日扇</h2>
+                <p>🇯🇵 日本熱銷 4 萬台｜90% 使用者肯定｜一年四季的溫暖守護</p>
+                <div class="order-info">
+                    <div class="info-item">
+                        <span class="info-icon">📦</span>
+                        <p>台灣本島免運</p>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">🛡️</span>
+                        <p>12 個月保固</p>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">✓</span>
+                        <p>BSMI 認證</p>
+                    </div>
+                </div>
+                <a href="https://forms.gle/EVDutffnMnav788o8" target="_blank" class="btn btn-order">填寫訂購表單</a>
+                <p class="order-note">填寫表單後，我們將於 1-2 個工作天內與您聯繫確認訂單</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Footer ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="LINE">💬</a>
+            </div>
+            <p>&copy; 2026 HABO. All rights reserved. | 讓家更有溫度</p>
+        </div>
+    </footer>
+
+    <!-- ==================== JavaScript ==================== -->
+    <script>
+        // Mobile Menu Toggle
+        const navbarToggle = document.getElementById('navbarToggle');
+        const navbarMenu = document.getElementById('navbarMenu');
+        
+        navbarToggle.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('.navbar-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbarMenu.classList.remove('active');
+            });
+        });
+        
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // Close all other FAQ items
+                faqQuestions.forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.classList.remove('active');
+                });
+                
+                // Toggle current FAQ item
+                if (!isActive) {
+                    question.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+        
+        // Smooth scroll enhancement (optional, since CSS already handles it)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // ==================== Scroll Animation Observer ====================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optional: unobserve after animation to improve performance
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all elements with animation classes
+        const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+        animatedElements.forEach(el => observer.observe(el));
+        
+        // ==================== Number Counter Animation ====================
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.textContent = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Initial animation for hero elements
+        window.addEventListener('load', () => {
+            const heroElements = document.querySelectorAll('.hero .fade-in, .hero .scale-in');
+            setTimeout(() => {
+                heroElements.forEach(el => el.classList.add('visible'));
+            }, 100);
+        });
+    </script>
+</body>
+</html>
